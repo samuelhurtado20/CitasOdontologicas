@@ -10,7 +10,7 @@
         </div>
 
         <div class="mb-3 row">
-            <label for="identification" class="col-sm-2 col-form-label">Cedula</label>
+            <label for="identification" class="col-sm-2 col-form-label">Cédula</label>
             <div class="col-sm-6">
             <input type="text" class="form-control" id="identification" placeholder="Cedula" value="<?php echo $dentist->identification; ?>">
             </div>
@@ -38,7 +38,7 @@
         </div>
         
         <div class="mb-3 row">
-            <label for="phone" class="col-sm-2 col-form-label">Telefono</label>
+            <label for="phone" class="col-sm-2 col-form-label">Teléfono</label>
             <div class="col-sm-6">
             <input type="text" class="form-control" id="phone" placeholder="Telefono" value="<?php echo $dentist->phone; ?>">
             </div>
@@ -48,7 +48,7 @@
                 <button type="submit" class="btn btn-primary form-control">Actualizar</button>
             </div>
             <div class="col-2">
-                <a asp-action="Index" class="btn btn-success form-control" href="<?php echo $routes->get('dentistIndex')->getPath(); ?>">Back</a>
+                <a asp-action="Index" class="btn btn-success form-control" href="<?php echo $routes->get('dentistIndex')->getPath(); ?>">Atrás</a>
             </div>
         </div>
         <!-- <a class="btn btn-primary" href="<?php echo $routes->get('dentistIndex')->getPath(); ?>"><i class="fas fa-left"></i> Atras</a> -->

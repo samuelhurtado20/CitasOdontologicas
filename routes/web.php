@@ -32,3 +32,7 @@ $routes->add('dentistSave',
         new Route(constant('URL_SUBFOLDER') . '/dentistSave', array('controller' => 'DentistController', 'method'=>'save'), array()));
 $routes->add('dentistDelete', 
     new Route(constant('URL_SUBFOLDER') . '/dentistDelete/{id}', array('controller' => 'DentistController', 'method'=>'delete'), array()));
+
+// pacient
+$routes->add('pacientIndex', 
+new Route(constant('URL_SUBFOLDER') . '/pacient', array('controller' => 'PacientController', 'method'=>'index'), array()));

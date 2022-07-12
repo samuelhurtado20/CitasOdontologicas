@@ -16,10 +16,10 @@ else echo "<span class='error d-none'>$msg</span>";
     <div class="p-4 border rounded">
         <table id="tblData" class="table table-striped table-bordered" style="width:100%">
             <thead>
-                <th>Cedula</th>
-                <th>Nombre Completo</th>
+                <th>Cédula</th>
+                <th>Nombres y Apellidos</th>
                 <th>Cargo</th>
-                <th>Telefono</th>
+                <th>Teléfono</th>
                 <th>Opciones</th>
             </thead>
             <tbody>
@@ -31,13 +31,13 @@ else echo "<span class='error d-none'>$msg</span>";
                             <td><?php echo $data['position']; ?></td>
                             <td><?php echo $data['phone']; ?></td>
                             <td>
-                                <a onclick="View(<?php echo $data['id']; ?>)" class="text-info" style="cursor:pointer; text-decoration: none">
+                                <a onclick="View(<?php echo $data['id']; ?>)" title="Ver detalles" class="text-info" style="cursor:pointer; text-decoration: none">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a onclick="Single(<?php echo $data['id']; ?>)" class="text-info" style="cursor:pointer; text-decoration: none">
+                                <a onclick="Single(<?php echo $data['id']; ?>)" title="Actualizar" class="text-info" style="cursor:pointer; text-decoration: none">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a onclick="Delete(<?php echo $data['id']; ?>)" class="text-danger" style="cursor:pointer; text-decoration: none">
+                                <a onclick="Delete(<?php echo $data['id']; ?>)" title="Eliminar" class="text-danger" style="cursor:pointer; text-decoration: none">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
@@ -48,6 +48,8 @@ else echo "<span class='error d-none'>$msg</span>";
         </table>
 
     </div>
+    <br />
+    <a class="btn btn-primary" href="<?php echo $routes->get('homepage')->getPath(); ?>"><i class="fas fa-left"></i> Atrás</a>
     
 <?php  require_once APP_ROOT . '/views/Shared/footer.php'; ?>
 
@@ -70,8 +72,8 @@ function Single(id) {
 
 function Delete(id) {
     swal({
-        title: "Are you sure?",
-        text: "You are deleting a record permanently",
+        title: "Estas seguro de eliminar?",
+        text: "Esta eliminacion es permanente.",
         icon: "warning",
         buttons: true,
         dangerMode: true

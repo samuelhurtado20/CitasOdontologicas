@@ -16,7 +16,7 @@
     <header class="">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><?php echo constant("SITE_NAME"); ?></a>
+                <a class="navbar-brand" href="<?php echo $routes->get('homepage')->getPath(); ?>"><?php echo constant("SITE_NAME"); ?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                             <a class="nav-link" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/dentist">Odontólogos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/product">Products</a>
+                            <a class="nav-link" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/pacient">Pacient</a>
                         </li>
 
                         <li class="nav-item dropdown">

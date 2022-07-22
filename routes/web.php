@@ -33,6 +33,22 @@ $routes->add('dentistSave',
 $routes->add('dentistDelete', 
     new Route(constant('URL_SUBFOLDER') . '/dentistDelete/{id}', array('controller' => 'DentistController', 'method'=>'delete'), array()));
 
-// pacient
-$routes->add('pacientIndex', 
-new Route(constant('URL_SUBFOLDER') . '/pacient', array('controller' => 'PacientController', 'method'=>'index'), array()));
+// patient 
+$routes->add('patientIndex', 
+new Route(constant('URL_SUBFOLDER') . '/patient', array('controller' => 'PatientController', 'method'=>'index'), array()));
+$routes->add('patientList', 
+    new Route(constant('URL_SUBFOLDER') . '/patientList/{msg}', array('controller' => 'PatientController', 'method'=>'list'), array('msg')));
+$routes->add('patientAll', 
+    new Route(constant('URL_SUBFOLDER') . '/patientAll', array('controller' => 'PatientController', 'method'=>'selectAll'), array()));
+$routes->add('patientView', 
+    new Route(constant('URL_SUBFOLDER') . '/patientView/{id}', array('controller' => 'PatientController', 'method'=>'view'), array('id' => '[0-9]+')));
+$routes->add('patientSingle', 
+    new Route(constant('URL_SUBFOLDER') . '/patientSingle/{id}', array('controller' => 'PatientController', 'method'=>'single'), array('id' => '[0-9]+')));
+$routes->add('patientUpdate', 
+    new Route(constant('URL_SUBFOLDER') . '/patientUpdate', array('controller' => 'PatientController', 'method'=>'update'), array()));
+$routes->add('patientAdd', 
+    new Route(constant('URL_SUBFOLDER') . '/patientAdd', array('controller' => 'PatientController', 'method'=>'add'), array()));
+$routes->add('patientSave', 
+        new Route(constant('URL_SUBFOLDER') . '/patientSave', array('controller' => 'PatientController', 'method'=>'save'), array()));
+$routes->add('patientDelete', 
+    new Route(constant('URL_SUBFOLDER') . '/patientDelete/{id}', array('controller' => 'PatientController', 'method'=>'delete'), array()));

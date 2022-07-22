@@ -28,21 +28,7 @@
                             <a class="nav-link" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/dentist">Odontólogos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/pacient">Pacient</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                Admin
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Warehouse</a>
-                                <a class="dropdown-item" href="#">Category</a>
-                                <a class="dropdown-item" href="#">Brand</a>
-                                <a class="dropdown-item" href="#">Product</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <a class="nav-link" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/patient">Pacientes</a>
                         </li>
 
                     </ul>

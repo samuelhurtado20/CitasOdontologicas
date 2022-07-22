@@ -4,10 +4,10 @@ else echo "<span class='error d-none'>$msg</span>";
 ?>
     <div class="row">
         <div class="col-9">
-            <h2 class="text-primary"> Odontólogos </h2>
+            <h2 class="text-primary"> Pacientes </h2>
         </div>
         <div class="col-2">
-            <a class="btn btn-success form-control" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/dentistAdd"> <i class="fas fa-plus"></i> Agregar nuevo </a>
+            <a class="btn btn-success form-control" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/patientAdd"> <i class="fas fa-plus"></i> Agregar nuevo </a>
         </div>
     </div>
 
@@ -59,33 +59,33 @@ else echo "<span class='error d-none'>$msg</span>";
 <script>
     var datatable;
 
-$(document).ready(function () {
+	$(document).ready(function () {
 		$('#tblData').DataTable({
             "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json" }
         });
-    if($('span.error').text()) toastr.error($('span.error').text());
-    if($('span.success').text()) toastr.success($('span.success').text());
-});
+		if($('span.error').text()) toastr.error($('span.error').text());
+		if($('span.success').text()) toastr.success($('span.success').text());
+	});
 
-function View(id) {
-    window.location.replace("../../CitasOdontologicas/dentistView/" + id);
-}
+	function View(id) {
+		window.location.replace("../../CitasOdontologicas/patientView/" + id);
+	}
 
-function Single(id) {
-    window.location.replace("../../CitasOdontologicas/dentistSingle/" + id);
-}
+	function Single(id) {
+		window.location.replace("../../CitasOdontologicas/patientSingle/" + id);
+	}
 
-function Delete(id) {
-    swal({
-        title: "Estas seguro de eliminar?",
-        text: "Esta eliminacion es permanente.",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true
-    }).then((yes) => {
-        if (yes) {
-            window.location.replace("../../CitasOdontologicas/dentistDelete/" + id);
-        }
-    });
-}
+	function Delete(id) {
+		swal({
+			title: "Estas seguro de eliminar?",
+			text: "Esta eliminacion es permanente.",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true
+		}).then((yes) => {
+			if (yes) {
+				window.location.replace("../../CitasOdontologicas/patientDelete/" + id);
+			}
+		});
+	}
 </script>

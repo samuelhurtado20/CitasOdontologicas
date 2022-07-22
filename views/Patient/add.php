@@ -1,7 +1,7 @@
 <?php  require_once APP_ROOT . '/views/Shared/header.php'; ?>
 
-	<form class="p-5" id="formOdontologo">
-		<h1>Agregar Odontólogo</h1>        
+	<form class="p-5" id="formPaciente">
+		<h1>Agregar Paciente</h1>        
         <div class="mb-3 row">
             <label for="identification" class="col-sm-2 col-form-label">Cédula</label>
             <div class="col-sm-6">
@@ -26,12 +26,8 @@
         <div class="mb-3 row">
             <label for="position" class="col-sm-2 col-form-label">Cargo</label>
             <div class="col-sm-6">
-                <select class="form-select form-control" id="position" name="position" aria-label="Default select example">
-                    <option value='' selected>Seleccione...</option>
-                    <option value="Cirugía e implantologia">Cirugía  e implantologia</option>
-                    <option value="Ortodoncia">Ortodoncia</option>
-                    <option value="Rehabilitación oral">Rehabilitación oral</option>
-                    <option value="Odontología">Odontología</option>
+                <select class="form-select form-control" id="position" name="position" disabled>
+                    <option value='Paciente' selected>Paciente</option>
                 </select>
             </div>
         </div>
@@ -44,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-2">
-                <a class="btn btn-primary form-control" href="<?php echo $routes->get('dentistIndex')->getPath(); ?>"><i class="fas fa-arrow-left"></i> Atrás</a>
+                <a class="btn btn-primary form-control" href="<?php echo $routes->get('patientIndex')->getPath(); ?>"><i class="fas fa-arrow-left"></i> Atrás</a>
             </div>
             <div class="col-2">
                 <button type="button" class="btn btn-success form-control"><i class="fas fa-save"></i> Agregar</button>
@@ -57,7 +53,7 @@
 <script>
 
 $('button').on('click', function() {
-    if(!$("#formOdontologo").valid()) return;
+    if(!$("#formPaciente").valid()) return;
 
     var params = new FormData();
     params.append('id', 0);
@@ -71,7 +67,7 @@ $('button').on('click', function() {
 
     $.ajax({
         type: 'POST',
-        url: '/CitasOdontologicas/dentistSave',
+        url: '/CitasOdontologicas/patientSave',
         data: params,
         cache: false,
         contentType: false,
@@ -80,7 +76,7 @@ $('button').on('click', function() {
         success: function (data) {
             //console.log(data)
             if (data.success) {
-                window.location.replace("../../CitasOdontologicas/dentistList/" + data.msg);
+                window.location.replace("../../CitasOdontologicas/patientList/" + data.msg);
             }
             else {
                 toastr.error(data.msg);

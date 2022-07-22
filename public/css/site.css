@@ -1,6 +1,7 @@
 /*label, .dataTables_info, .previous, .next {
     color: antiquewhite;
 }*/
+.error { color:#dd4b39;}
 .navbar {
     padding-top: 0;
     padding-bottom: 0;

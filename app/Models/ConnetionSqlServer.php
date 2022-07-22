@@ -96,7 +96,7 @@ class ConnetionSqlServer
 
             if ($query == FALSE) die(print_r(sqlsrv_errors(), true));
             
-            $result;
+            $result = Array();
             $i = 0;
             while( $row = sqlsrv_fetch_array( $query, SQLSRV_FETCH_ASSOC )) 
             {

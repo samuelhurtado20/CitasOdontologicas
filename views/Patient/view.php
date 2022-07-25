@@ -44,6 +44,21 @@
             <input type="text" class="form-control" id="phone" placeholder="Teléfono" value="<?php echo $patient->phone; ?>" disabled>
             </div>
         </div>
+        
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $patient->userEmail; ?>" disabled>
+            </div>
+        </div>
+        
+        <div class="mb-3 row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-6">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $patient->userPassword; ?>" disabled>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-2">
                 <a class="btn btn-primary form-control" href="<?php echo $routes->get('patientIndex')->getPath(); ?>"><i class="fas fa-arrow-left"></i> Atrás</a>

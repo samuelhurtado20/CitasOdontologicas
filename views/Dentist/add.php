@@ -42,6 +42,21 @@
             <input type="number" class="form-control" id="phone" name='phone' placeholder="Teléfono">
             </div>
         </div>
+        
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+            <input type="email" class="form-control" id="email" name='email' placeholder="Email">
+            </div>
+        </div>
+        
+        <div class="mb-3 row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" id="password" name='password' placeholder="Password">
+            </div>
+        </div>
+        
         <div class="row">
             <div class="col-2">
                 <a class="btn btn-primary form-control" href="<?php echo $routes->get('dentistIndex')->getPath(); ?>"><i class="fas fa-arrow-left"></i> Atrás</a>
@@ -68,6 +83,8 @@ $('button').on('click', function() {
     params.append('phone', $('#phone').val());
     params.append('dateOfBirth', $('#dateOfBirth').val());
     params.append('status', 1);
+    params.append('userEmail', $('#email').val());
+    params.append('userPassword', $('#password').val());
 
     $.ajax({
         type: 'POST',

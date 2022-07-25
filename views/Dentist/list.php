@@ -59,33 +59,33 @@ else echo "<span class='error d-none'>$msg</span>";
 <script>
     var datatable;
 
-$(document).ready(function () {
-		$('#tblData').DataTable({
-            "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json" }
-        });
-    if($('span.error').text()) toastr.error($('span.error').text());
-    if($('span.success').text()) toastr.success($('span.success').text());
-});
-
-function View(id) {
-    window.location.replace("../../CitasOdontologicas/dentistView/" + id);
-}
-
-function Single(id) {
-    window.location.replace("../../CitasOdontologicas/dentistSingle/" + id);
-}
-
-function Delete(id) {
-    swal({
-        title: "Estas seguro de eliminar?",
-        text: "Esta eliminacion es permanente.",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true
-    }).then((yes) => {
-        if (yes) {
-            window.location.replace("../../CitasOdontologicas/dentistDelete/" + id);
-        }
+    $(document).ready(function () {
+            $('#tblData').DataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json" }
+            });
+        if($('span.error').text()) toastr.error($('span.error').text());
+        if($('span.success').text()) toastr.success($('span.success').text());
     });
-}
+
+    function View(id) {
+        window.location.replace("../../CitasOdontologicas/dentistView/" + id);
+    }
+
+    function Single(id) {
+        window.location.replace("../../CitasOdontologicas/dentistSingle/" + id);
+    }
+
+    function Delete(id) {
+        swal({
+            title: "Estas seguro de eliminar?",
+            text: "Esta eliminacion es permanente.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+        }).then((yes) => {
+            if (yes) {
+                window.location.replace("../../CitasOdontologicas/dentistDelete/" + id);
+            }
+        });
+    }
 </script>

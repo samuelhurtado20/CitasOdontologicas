@@ -12,6 +12,8 @@ class Dentist
     public $identification;
     public $dateOfBirth;
     public $status;
+    public $userEmail;
+    public $userPassword;
 
     public function __construct() 
     {    }
@@ -39,8 +41,8 @@ class Dentist
         try
         {
             $connSqlServer = new ConnetionSqlServer();
-            $tsql = "UPDATE dentist set name=?, lastName=?, position=?, phone=?, identification=?, dateOfBirth=?, status=? where id = ?";
-            $params = array($this->name, $this->lastName, $this->position, $this->phone, $this->identification, $this->dateOfBirth, $this->status, $this->id);
+            $tsql = "UPDATE dentist set name=?, lastName=?, position=?, phone=?, identification=?, dateOfBirth=?, status=?, userEmail=? where id = ?";
+            $params = array($this->name, $this->lastName, $this->position, $this->phone, $this->identification, $this->dateOfBirth, $this->status, $this->userEmail, $this->id);
             
             $result = $connSqlServer->save($tsql, $params);
 
@@ -57,8 +59,8 @@ class Dentist
         try
         {
             $connSqlServer = new ConnetionSqlServer();
-            $tsql = "INSERT INTO dentist (name, lastName, position, phone, identification, dateOfBirth, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $params = array($this->name, $this->lastName, $this->position, $this->phone, $this->identification, $this->dateOfBirth, $this->status);
+            $tsql = "INSERT INTO dentist (name, lastName, position, phone, identification, dateOfBirth, status, userEmail, userPassword) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $params = array($this->name, $this->lastName, $this->position, $this->phone, $this->identification, $this->dateOfBirth, $this->status, $this->userEmail, $this->userPassword);
             
             $result = $connSqlServer->save($tsql, $params);
 
@@ -85,6 +87,8 @@ class Dentist
             $this->identification = $data['identification'];
             $this->dateOfBirth = $data['dateOfBirth'];
             $this->status = $data['status'];
+            $this->userEmail        = $data['userEmail'];
+            $this->userPassword     = $data['userPassword'];
 
             return $this;
         }
@@ -102,6 +106,7 @@ class Dentist
             $tsql = "select * from dentist";
             $data = $connSqlServer->ReadMany($tsql);
 
+            $result = Array();
             $i = 0;
             foreach ($data as $value) {
                 $result[$i]['id']       = $data[$i]['id'];
@@ -110,8 +115,9 @@ class Dentist
                 $result[$i]['lastName'] = $data[$i]['lastName'];
                 $result[$i]['position'] = $data[$i]['position'];
                 $result[$i]['phone'] = $data[$i]['phone'];
-                //$result[$i]['dateOfBirth']  = $data[$i]['dateOfBirth'];
                 $result[$i]['dateOfBirth'] = $data[$i]['dateOfBirth']->format('Y-m-d');
+                $result[$i]['userEmail'] = $data[$i]['userEmail'];
+                $result[$i]['userPassword'] = $data[$i]['userPassword'];
                 $i++;
               }
 
@@ -122,10 +128,4 @@ class Dentist
             echo("Error!" . $e);
         }
 	}
-
-    // public function __construct(array $data) 
-    // {
-    //     $this->Id = $data['Id'];
-    //     $this->Email = $data['Email'];
-    // }
 }

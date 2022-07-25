@@ -2,9 +2,17 @@
         </main>
     </div>
 
-    <footer class="border-top footer bg-dark text-white">
-        <div class="container">
-            &copy; 2022 - <?php echo constant("SITE_NAME"); ?>
+    <footer class="border-top footer bg-dark text-white">        
+        <div class="row container">
+            <div class="col-10">
+                &copy; 2022 - <?php echo constant("SITE_NAME"); ?>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-primary form-control <?php  if(!isset($_SESSION['login'])) echo 'd-none'; ?>" href="<?php echo $routes->get('logout')->getPath(); ?>">
+                    <i class="fas fa-arrow-left"></i> 
+                    Salir
+                </a>
+            </div>
         </div>
     </footer>
 
@@ -119,6 +127,29 @@ $("#formPaciente").validate({
         },
         phone: {
             required: "Ingrese el Teléfono",
+            minlength: jQuery.validator.format("¡Se requieren al menos {0} caracteres!")
+        }
+    }
+});
+
+$("#formLogin").validate({
+    rules: {
+        email: {
+            required: true,
+            minlength: 6
+        },
+        password: {
+            required: true,
+            minlength: 6
+        }
+    },
+    messages: {
+        email: {
+            required: "Ingrese un email",
+            minlength: jQuery.validator.format("¡Se requieren al menos {0} caracteres!")
+        },
+        password: {
+            required: "Ingrese un password",
             minlength: jQuery.validator.format("¡Se requieren al menos {0} caracteres!")
         }
     }

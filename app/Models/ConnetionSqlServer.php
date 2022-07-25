@@ -40,6 +40,34 @@ class ConnetionSqlServer
         }  
     }
      
+    function login($tsql, $params)  
+    {  
+        try  
+        {
+            $conn = self::OpenConnection();  
+            $tsql;  
+            $query = sqlsrv_query($conn, $tsql, $params);  
+
+            if ($query == FALSE) die(print_r(sqlsrv_errors(), true));
+            
+            $result = Array();
+            $i = 0;
+            while( $row = sqlsrv_fetch_array( $query, SQLSRV_FETCH_ASSOC )) 
+            {
+                $result[$i] = $row;
+                $i++;
+            }
+            
+            sqlsrv_free_stmt($query);  
+            sqlsrv_close($conn); 
+            return $i > 0;
+        }  
+        catch(Exception $e)  
+        {  
+            echo("Error!");  
+        }  
+    }
+     
     function save($tsql, $params)  
     {  
         try  
@@ -69,13 +97,6 @@ class ConnetionSqlServer
 
             if ($getNames == FALSE) die(print_r(sqlsrv_errors(), true));
             $result = sqlsrv_fetch_array($getNames, SQLSRV_FETCH_ASSOC);
-            // $productCount = 0;  
-            // while($row = sqlsrv_fetch_array($getNames, SQLSRV_FETCH_ASSOC))  
-            // {  
-            //     echo($row['nombre']);  
-            //     echo("<br/>");  
-            //     $productCount++;  
-            // }  
             sqlsrv_free_stmt($getNames);  
             sqlsrv_close($conn); 
             return $result;

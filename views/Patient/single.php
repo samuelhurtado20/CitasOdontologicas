@@ -45,6 +45,20 @@
             <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono" value="<?php echo $patient->phone; ?>">
             </div>
         </div>
+        
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $patient->userEmail; ?>">
+            </div>
+        </div>
+        
+        <!-- <div class="mb-3 row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $patient->userPassword; ?>">
+            </div>
+        </div> -->
 
         <div class="row">
             <div class="col-2">
@@ -73,6 +87,8 @@ $('button').on('click', function() {
     params.append('phone', $('#phone').val());
     params.append('dateOfBirth', $('#dateOfBirth').val());
     params.append('status', 1);
+    params.append('userEmail', $('#email').val());
+    //params.append('userPassword', $('#password').val());
 
     $.ajax({
         type: 'POST',

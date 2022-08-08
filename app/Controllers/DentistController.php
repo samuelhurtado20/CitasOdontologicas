@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+session_start();
 
 use App\Models\Dentist;
 use Symfony\Component\Routing\RouteCollection;

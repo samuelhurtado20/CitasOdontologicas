@@ -1,6 +1,6 @@
 <?php  require_once APP_ROOT . '/views/Shared/header.php'; ?>
 
-	<section class="p-5">
+	<section class="p-3 tran">
 		<h1>Datos Odontólogo:</h1>
         <div class="mb-3 row">
             <label for="id" class="col-sm-2 col-form-label">Id</label>

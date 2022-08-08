@@ -10,9 +10,6 @@ class ProductController
     // Show the product attributes based on the id.
 	public function list(RouteCollection $routes)
 	{
-        //$product = new Product();
-        //$product->read($id);
-
         require_once APP_ROOT . '/views/product/list.php';
 	}
     

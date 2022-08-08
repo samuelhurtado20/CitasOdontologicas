@@ -13,7 +13,7 @@ else echo "<span class='error d-none'>$msg</span>";
 
     <br />
 
-    <div class="p-4 border rounded">
+    <div class="p-4 border rounded tran">
         <table id="tblData" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <th>Cédula</th>

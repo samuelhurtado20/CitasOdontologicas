@@ -28,19 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 
     <script type="text/javascript">
-        function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
-
-        $(document).ready(function(){
-            $(document).on("keydown", disableF5);
-        });
-
-        //function preventBack(){window.history.forward();}
-            //setTimeout("preventBack()", 0);
-            //window.onunload=function(){alert();};
-
-            //window.onbeforeunload = function() {
-            //return "Do you want to leave this page?";
-        //}
+        
 
 $("#formOdontologo").validate({
     rules: {

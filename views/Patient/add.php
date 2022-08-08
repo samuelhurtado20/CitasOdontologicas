@@ -1,6 +1,6 @@
 <?php  require_once APP_ROOT . '/views/Shared/header.php'; ?>
 
-	<form class="p-5" id="formPaciente">
+	<form class="p-3 tran" id="formPaciente">
 		<h1>Agregar Paciente</h1>        
         <div class="mb-3 row">
             <label for="identification" class="col-sm-2 col-form-label">Cédula</label>
@@ -91,7 +91,6 @@ $('button').on('click', function() {
         processData: false,
         dataType: 'json',
         success: function (data) {
-            //console.log(data)
             if (data.success) {
                 window.location.replace("../../CitasOdontologicas/patientList/" + data.msg);
             }

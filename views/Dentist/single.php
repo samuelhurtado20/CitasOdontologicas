@@ -1,6 +1,6 @@
 <?php  require_once APP_ROOT . '/views/Shared/header.php'; ?>
 
-    <form class="p-5" id="formOdontologo">
+    <form class="p-3 tran" id="formOdontologo">
 		<h1>Datos Odontólogo:</h1>
         <div class="mb-3 row">
             <label for="id" class="col-sm-2 col-form-label">Id</label>
@@ -56,13 +56,6 @@
             <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $dentist->userEmail; ?>">
             </div>
         </div>
-        
-        <!-- <div class="mb-3 row">
-            <label for="password" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-6">
-            <input type="text" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $dentist->userPassword; ?>">
-            </div>
-        </div> -->
 
         <div class="row">
             <div class="col-2">
@@ -92,7 +85,6 @@ $('button').on('click', function() {
     params.append('dateOfBirth', $('#dateOfBirth').val());
     params.append('status', 1);
     params.append('userEmail', $('#email').val());
-    // params.append('userPassword', $('#password').val());
 
     $.ajax({
         type: 'POST',
@@ -106,8 +98,6 @@ $('button').on('click', function() {
             console.log(data)
             if (data.success) {
                 window.location.replace("../../CitasOdontologicas/dentistList/" + data.msg);
-                //toastr.success(data.msg);
-                //datatable.ajax.reload();
             }
             else {
                 toastr.error(data.msg);

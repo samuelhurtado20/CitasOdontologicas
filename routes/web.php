@@ -8,10 +8,9 @@ $routes = new RouteCollection();
 
 // home
 $routes->add('homepage', new Route(constant('URL_SUBFOLDER') . '/', array('controller' => 'PageController', 'method'=>'indexAction'), array()));
-$routes->add('login', 
-    new Route(constant('URL_SUBFOLDER') . '/login/{email}/{password}', array('controller' => 'PageController', 'method'=>'login'), array('email', 'password')));
-    $routes->add('logout', 
-        new Route(constant('URL_SUBFOLDER') . '/logout', array('controller' => 'PageController', 'method'=>'logout'), array()));
+$routes->add('login', new Route(constant('URL_SUBFOLDER') . '/login/{email}/{password}', array('controller' => 'PageController', 'method'=>'login'), array('email', 'password')));
+$routes->add('logout', new Route(constant('URL_SUBFOLDER') . '/logout', array('controller' => 'PageController', 'method'=>'logout'), array()));
+$routes->add('calendar', new Route(constant('URL_SUBFOLDER') . '/calendar', array('controller' => 'PageController', 'method'=>'calendar'), array()));
 
 // product
 $routes->add('product', new Route(constant('URL_SUBFOLDER') . '/product', array('controller' => 'ProductController', 'method'=>'list'), array()));

@@ -134,5 +134,36 @@ class ConnetionSqlServer
             echo("Error!");  
         }  
     } 
+     
+    function Schedules($tsql)  
+    {  
+        try  
+        {
+            $conn = self::OpenConnection();  
+            $tsql;  
+            $query = sqlsrv_query($conn, $tsql);  
+
+            if ($query == FALSE) die(print_r(sqlsrv_errors(), true));
+            
+            $sched_res = Array();
+            //$i = 0;
+            while( $row = sqlsrv_fetch_array( $query, SQLSRV_FETCH_ASSOC )) 
+            {
+                $row['sdate'] = date("F d, Y h:i A",strtotime($row['start_datetime']->format('Y-m-d H:i:s')));
+                $row['edate'] = date("F d, Y h:i A",strtotime($row['end_datetime']->format('Y-m-d H:i:s')));
+                $sched_res[$row['id']] = $row;
+                //$result[$i] = $row;
+                //$i++;
+            }
+            
+            sqlsrv_free_stmt($query);  
+            sqlsrv_close($conn); 
+            return $sched_res;
+        }  
+        catch(Exception $e)  
+        {  
+            echo("Error!");  
+        }  
+    } 
 }
 ?>

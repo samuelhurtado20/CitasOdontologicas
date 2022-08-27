@@ -12,6 +12,8 @@ $routes->add('login', new Route(constant('URL_SUBFOLDER') . '/login/{email}/{pas
 $routes->add('logout', new Route(constant('URL_SUBFOLDER') . '/logout', array('controller' => 'PageController', 'method'=>'logout'), array()));
 $routes->add('calendar', new Route(constant('URL_SUBFOLDER') . '/calendar', array('controller' => 'PageController', 'method'=>'calendar'), array()));
 
+$routes->add('eventSave', new Route(constant('URL_SUBFOLDER') . '/eventSave', array('controller' => 'PageController', 'method'=>'eventSave'), array()));
+
 // product
 $routes->add('product', new Route(constant('URL_SUBFOLDER') . '/product', array('controller' => 'ProductController', 'method'=>'list'), array()));
 $routes->add('productId', new Route(constant('URL_SUBFOLDER') . '/product/{id}', array('controller' => 'ProductController', 'method'=>'byId'), array('id' => '[0-9]+')));

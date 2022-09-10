@@ -2,13 +2,14 @@ var calendar;
 var Calendar = FullCalendar.Calendar;
 var events = [];
 //var scheds = {}
+//var scheds = {}
 
 $(function() {
     //console.log(scheds);
     if (!!scheds) {
         Object.keys(scheds).map(k => {
             var row = scheds[k]
-            events.push({ id: row.id, title: row.title, start: row.start_datetime.date, end: row.end_datetime.date });
+            events.push({ id: row.id, title: row.title, start: row.start_datetime.date.date, end: row.end_datetime.date.date });
         });
     }
     

@@ -1,6 +1,7 @@
 <?php  require_once APP_ROOT . '/views/Shared/header.php'; ?>
 
 <div class="container py-5" id="page-container">
+<div class="container py-5" id="page-container">
     <div class="row tran">
         <div class="col-md-9">
             <div id="calendar"></div>

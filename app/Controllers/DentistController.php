@@ -75,7 +75,7 @@ class DentistController
         $dentist->dateOfBirth           = date('Y-m-d H:i:s');
         $dentist->status                = $_POST['status'];
         $dentist->userEmail             = $_POST['userEmail'];
-        $dentist->userPassword          = md5(trim($_POST['userPassword']));
+        //$dentist->userPassword          = md5(trim($_POST['userPassword']));
         // execute
         $result = $dentist->update();
         // response

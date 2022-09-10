@@ -1,5 +1,5 @@
 <?php  require_once APP_ROOT . '/views/Shared/header.php'; ?>
-    <div class="row" style="">
+    <div class="row">
         <div class="col-12">
         </div>
     </div>

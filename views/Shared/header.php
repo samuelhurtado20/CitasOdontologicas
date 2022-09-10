@@ -34,6 +34,9 @@
                         <li class="nav-item">
                             <a class="nav-link <?php  if(!isset($_SESSION['login'])) echo 'd-none'; ?>" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/patient">Pacientes</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link <?php  if(!isset($_SESSION['login'])) echo 'd-none'; ?>" href="../../<?php echo constant("URL_SUBFOLDER"); ?>/calendar">Calendario</a>
+                        </li>
 
                     </ul>
                 </div>

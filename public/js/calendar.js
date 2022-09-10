@@ -1,13 +1,14 @@
 var calendar;
 var Calendar = FullCalendar.Calendar;
 var events = [];
+//var scheds = {}
 
 $(function() {
-
+    //console.log(scheds);
     if (!!scheds) {
         Object.keys(scheds).map(k => {
             var row = scheds[k]
-            events.push({ id: row.id, title: row.title, start: row.start_datetime, end: row.end_datetime });
+            events.push({ id: row.id, title: row.title, start: row.start_datetime.date, end: row.end_datetime.date });
         });
     }
     
@@ -61,12 +62,13 @@ $(function() {
         if (!!scheds[id]) {
             var form = $('#schedule-form');
 
-            console.log(String(scheds[id].start_datetime), String(scheds[id].start_datetime).replace(" ", "\\t"));
+            //console.log(String(scheds[id].start_datetime), String(scheds[id].start_datetime).replace(" ", "\\t"));
+            //console.log(String(scheds[id].start_datetime.date).replace(" ", "T"));
             form.find('[name="id"]').val(id);
             form.find('[name="title"]').val(scheds[id].title);
             form.find('[name="description"]').val(scheds[id].description);
-            form.find('[name="start_datetime"]').val(String(scheds[id].start_datetime).replace(" ", "T"));
-            form.find('[name="end_datetime"]').val(String(scheds[id].end_datetime).replace(" ", "T"));
+            form.find('[name="start_datetime"]').val(String(scheds[id].start_datetime.date).replace(" ", "T").replace(".000000", ""));
+            form.find('[name="end_datetime"]').val(String(scheds[id].end_datetime.date).replace(" ", "T").replace(".000000", ""));
             $('#event-details-modal').modal('hide');
             form.find('[name="title"]').focus();
         } else {
@@ -79,12 +81,13 @@ $(function() {
         var id = $(this).attr('data-id');
 
         if (!!scheds[id]) {
-            var _conf = confirm("Are you sure to delete this scheduled event?");
+            var _conf = confirm("Estas seguro de borrar este evento?");
             if (_conf === true) {
-                location.href = "./delete_schedule.php?id=" + id;
+                location.href = "/CitasOdontologicas/eventDelete/" + id;
             }
         } else {
             alert("Event is undefined");
         }
     });
+
 });

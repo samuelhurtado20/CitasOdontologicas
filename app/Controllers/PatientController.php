@@ -74,7 +74,7 @@ class PatientController
         $patient->dateOfBirth           = date('Y-m-d H:i:s');
         $patient->status                = $_POST['status'];
         $patient->userEmail             = $_POST['userEmail'];
-        $patient->userPassword          = md5(trim($_POST['userPassword']));
+        //$patient->userPassword          = md5(trim($_POST['userPassword']));
         // execute
         $result = $patient->update();
         // response

@@ -4,7 +4,7 @@ session_start();
 use Symfony\Component\Routing\RouteCollection;
 use App\Models\ConnetionSqlServer;
 use App\Models\Event;
-use App\Models\Event;
+//use App\Models\Event;
 
 class PageController
 {
@@ -24,7 +24,7 @@ class PageController
 	public function login(string $email, string $password, RouteCollection $routes)
 	{
 		$connSqlServer = new ConnetionSqlServer();
-		$tsql = "select u.userEmail, u.userPassword from (select d.userEmail, d.userPassword from dbo.dentist d union select p.userEmail, p.userPassword from dbo.event p) u where u.userEmail = ? and u.userPassword = ?";
+		$tsql = "select u.userEmail, u.userPassword from (select d.userEmail, d.userPassword from dbo.dentist d union select p.userEmail, p.userPassword from dbo.patient p) u where u.userEmail = ? and u.userPassword = ?";
 		$params = array($email, md5(trim($password)));	
 		$result = $connSqlServer->login($tsql, $params);
 
